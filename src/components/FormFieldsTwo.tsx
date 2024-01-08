@@ -7,13 +7,13 @@ export function FormFieldsTwo() {
   const [monthly, setMonthly] = useState(true);
 
   return (
-    <div className="flex flex-col items-stretch gap-8">
-      <div className="grid grid-cols-[9rem,_9rem,_9rem] gap-4">
+    <div className="flex flex-col items-stretch gap-6 md:gap-8">
+      <div className="grid md:grid-cols-3 lg:grid-cols-[9rem,_9rem,_9rem] gap-2 md:gap-4">
         {plans.map((plan) => (
           <PlanCard plan={plan} monthly={monthly} />
         ))}
       </div>
-      <div className="rounded-lg bg-neutral-300 flex items-center justify-center p-4">
+      <div className="rounded-lg bg-blue-300/5 flex items-center justify-center p-4">
         <div className="relative">
           <label className="grid grid-cols-[1fr,_100px,_1fr]">
             <span className={`${monthly ? "font-bold" : "text-neutral-500"}`}>

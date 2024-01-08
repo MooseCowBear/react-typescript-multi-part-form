@@ -26,10 +26,10 @@ export function PlanCard({ plan, monthly }: PlanCardProps) {
     }
   };
 
-  // TODO: need state update 
+  // TODO: need state update
 
   return (
-    <button className="flex flex-col items-start justify-between border border-neutral-400 rounded-lg p-5 gap-10 hover:cursor-pointer">
+    <button className="flex md:flex-col items-start md:justify-between border border-neutral-400 rounded-lg py-4 px-5 md:py-5 md:px-[clamp(2px,_1vw,_1.25rem)] lg:p-5 gap-3 md:gap-10 hover:cursor-pointer hover:border-blue-300 hover:bg-blue-300/5">
       <img src={icon()} />
       <div className="flex flex-col items-start">
         <h3 className="font-medium leading-tight">{plan.title}</h3>
