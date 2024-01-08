@@ -1,3 +1,4 @@
+import { FormButton } from "../components/FormButton";
 import { FormContent } from "../components/FormContent";
 import { FormHeader } from "../components/FormHeader";
 
@@ -24,6 +25,10 @@ const FORM_HEADERS = [
   },
 ];
 
+// TODO: need to add another break point bc super small screens are pushing the form up too far
+
+// TODO: make buttons displayed be dependent on step
+
 export function Form({ step }: FormProps) {
   return (
     <div className="absolute w-11/12 top-0 left-1/2 translate-x-[-50%] translate-y-[-18%] rounded-xl py-5 px-5 md:left-0 md:translate-x-[0%] md:translate-y-[0%] md:py-10 md:px-20 md:relative bg-neutral-100 md:flex md:flex-col md:justify-between md:h-full md:w-auto md-bg-transparent">
@@ -34,9 +39,9 @@ export function Form({ step }: FormProps) {
         />
         <FormContent />
       </div>
-      <div className="hidden md:flex md:justify-between">
-        <button>one</button>
-        <button>two</button>
+      <div className="hidden md:flex md:justify-between border">
+        <FormButton name="Go Back" />
+        <FormButton name="Next Step" />
       </div>
     </div>
   );
