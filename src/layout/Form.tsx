@@ -32,7 +32,7 @@ const FORM_HEADERS = [
 
 export function Form({ step }: FormProps) {
   return (
-    <div className="absolute w-11/12 top-0 left-1/2 translate-x-[-50%] translate-y-[-18%] rounded-xl py-5 px-5 md:left-0 md:translate-x-[0%] md:translate-y-[0%] md:py-10 md:px-20 md:relative bg-neutral-100 md:flex md:flex-col md:justify-between md:h-full md:w-auto md-bg-transparent">
+    <div className="absolute w-11/12 top-0 left-1/2 translate-x-[-50%] translate-y-[-18%] rounded-xl py-8 px-6 md:left-0 md:translate-x-[0%] md:translate-y-[0%] md:py-10 md:px-20 md:relative bg-neutral-100 md:flex md:flex-col md:justify-between md:h-full md:w-auto md-bg-transparent">
       <div className="flex flex-col gap-8">
         <FormHeader
           title={FORM_HEADERS[step - 1].title}
