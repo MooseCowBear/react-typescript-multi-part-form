@@ -22,16 +22,19 @@ export const plans = [
 export const addOns = [
   {
     title: "Online service",
+    subtitle: "Access to multiplayer games",
     monthly: 1,
     yearly: 10
   },
   {
     title: "Larger storage",
+    subtitle: "Extra 1TB of cloud save",
     monthly: 2,
     yearly: 20
   },
   {
     title: "Customizable profile",
+    subtitle: "Custom theme on your profile",
     monthly: 2,
     yearly: 20
   }

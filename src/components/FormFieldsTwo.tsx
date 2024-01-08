@@ -3,6 +3,8 @@ import { useState } from "react";
 import { plans } from "../data/data";
 import { PlanCard } from "./PlanCard";
 
+// TODO: lift state up bc third screen needs it too
+
 export function FormFieldsTwo() {
   const [monthly, setMonthly] = useState(true);
 
@@ -10,7 +12,7 @@ export function FormFieldsTwo() {
     <div className="flex flex-col items-stretch gap-6 md:gap-8">
       <div className="grid md:grid-cols-3 lg:grid-cols-[9rem,_9rem,_9rem] gap-2 md:gap-4">
         {plans.map((plan) => (
-          <PlanCard plan={plan} monthly={monthly} />
+          <PlanCard key={plan.title} plan={plan} monthly={monthly} />
         ))}
       </div>
       <div className="rounded-lg bg-blue-300/5 flex items-center justify-center p-4">
