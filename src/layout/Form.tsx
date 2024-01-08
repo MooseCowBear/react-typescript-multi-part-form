@@ -1,3 +1,4 @@
+import { FormContent } from "../components/FormContent";
 import { FormHeader } from "../components/FormHeader";
 
 type FormProps = {
@@ -27,12 +28,14 @@ const FORM_HEADERS = [
 
 export function Form({ step }: FormProps) {
   return (
-    <div className="py-10 px-20 md:relative bg-neutral-100 md:flex md:flex-col md:justify-between md:h-full md:w-auto md-bg-transparent">
-      <FormHeader
-        title={FORM_HEADERS[step - 1].title}
-        subtitle={FORM_HEADERS[step - 1].subtitle}
-      />
-      
+    <div className="rounded-xl py-5 px-5 md:py-10 md:px-20 md:relative bg-neutral-100 md:flex md:flex-col md:justify-between md:h-full md:w-auto md-bg-transparent">
+      <div className="flex flex-col gap-8">
+        <FormHeader
+          title={FORM_HEADERS[step - 1].title}
+          subtitle={FORM_HEADERS[step - 1].subtitle}
+        />
+        <FormContent />
+      </div>
       <div className="hidden md:flex md:justify-between">
         <button>one</button>
         <button>two</button>
