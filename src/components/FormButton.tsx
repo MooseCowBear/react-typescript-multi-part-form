@@ -5,9 +5,9 @@ type FormButtonProps = {
 const BUTTON_STYLES = (name: string) => {
   switch(name) {
     case "Go Back":
-      return "bg-transparent text-neutral-500";
+      return "bg-transparent text-neutral-500 float-left";
     case "Next Step":
-      return "bg-blue-400 text-neutral-100 px-6";
+      return "bg-blue-400 text-neutral-100 px-6 float-right";
     default:
       return "bg-blue-300 text-neutral-100 px-6";
   }

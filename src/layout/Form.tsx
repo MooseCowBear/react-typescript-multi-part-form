@@ -27,9 +27,20 @@ const FORM_HEADERS = [
 
 // TODO: need to add another break point bc super small screens are pushing the form up too far
 
-// TODO: make buttons displayed be dependent on step
+// TODO: make sure size of card doesn't change screen to screen
 
 export function Form({ step }: FormProps) {
+  const buttons = (step: number) => {
+    switch (step) {
+      case 1:
+        return ["Next Step"];
+      case 4:
+        return ["Confirm"];
+      default:
+        return ["Go Back", "Next Step"];
+    }
+  };
+
   return (
     <div className="absolute w-11/12 top-0 left-1/2 translate-x-[-50%] translate-y-[-18%] rounded-xl py-5 px-5 md:left-0 md:translate-x-[0%] md:translate-y-[0%] md:py-10 md:px-20 md:relative bg-neutral-100 md:flex md:flex-col md:justify-between md:h-full md:w-auto md-bg-transparent">
       <div className="flex flex-col gap-8">
@@ -39,9 +50,8 @@ export function Form({ step }: FormProps) {
         />
         <FormContent />
       </div>
-      <div className="hidden md:flex md:justify-between border">
-        <FormButton name="Go Back" />
-        <FormButton name="Next Step" />
+      <div className="hidden md:block w-full">
+        {buttons(step).map((button) => <FormButton name={button} />)}
       </div>
     </div>
   );
