@@ -26,8 +26,6 @@ const FORM_HEADERS = [
   },
 ];
 
-// TODO: need to add another break point bc super small screens are pushing the form up too far
-
 // TODO: make sure size of card doesn't change screen to screen
 
 export function Form({ step }: FormProps) {
@@ -38,7 +36,7 @@ export function Form({ step }: FormProps) {
           title={FORM_HEADERS[step - 1].title}
           subtitle={FORM_HEADERS[step - 1].subtitle}
         />
-        <FormContent />
+        <FormContent step={step} />
       </div>
       <div className="hidden md:block w-full">
         {buttons(step).map((button) => (
