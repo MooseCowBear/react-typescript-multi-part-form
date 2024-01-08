@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Sidebar currentStep={currentStep} setStep={setCurrentStep} />
-      <div className="bg-blue-100 md:bg-neutral-100 relative h-full p-5 md:p-0">
+      <div className="bg-neutral-300 md:bg-neutral-100 relative h-full p-5 md:p-0">
         <Form step={currentStep} />
       </div>
     </>
