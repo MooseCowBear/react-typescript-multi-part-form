@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <Sidebar currentStep={currentStep} />
+      <Sidebar currentStep={currentStep} setStep ={setCurrentStep}/>
       <Form />
     </>
   );

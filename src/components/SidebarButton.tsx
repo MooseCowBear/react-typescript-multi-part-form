@@ -2,15 +2,17 @@ type SidebarButtonProps = {
   currentStep: number;
   num: number;
   heading: string;
+  setStep: (stepNum: number) => void;
 };
 
 export function SidebarButton({
   currentStep,
   num,
   heading,
+  setStep,
 }: SidebarButtonProps) {
   return (
-    <button className="flex gap-7 items-center">
+    <button onClick={() => setStep(num)} className="flex gap-7 items-center">
       <span
         className={`rounded-full w-9 h-9 flex items-center justify-center border ${
           currentStep === num
