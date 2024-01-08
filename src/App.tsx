@@ -1,14 +1,16 @@
 import { useState } from "react";
-import { Sidebar } from "./components/Sidebar";
+import { Sidebar } from "./layout/Sidebar";
+import { Form } from "./layout/Form";
 
 function App() {
-  const [screen, setScreen] = useState(1);
+  const [currentStep, setCurrentStep] = useState(1);
 
   return (
     <>
-      <Sidebar screen={screen} />
+      <Sidebar currentStep={currentStep} />
+      <Form />
     </>
   );
 }
 
-export default App
+export default App;
