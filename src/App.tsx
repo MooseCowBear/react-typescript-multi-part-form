@@ -11,6 +11,7 @@ function App() {
       <div className="bg-neutral-300 md:bg-neutral-100 relative h-full p-5 md:p-0">
         <Form step={currentStep} />
       </div>
+      
     </>
   );
 }
