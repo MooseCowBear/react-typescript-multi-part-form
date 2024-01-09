@@ -9,9 +9,11 @@ const BUTTON_STYLES = (name: string) => {
     case "Next Step":
       return "bg-blue-400 text-neutral-100 px-6 float-right";
     default:
-      return "bg-blue-300 text-neutral-100 px-6";
+      return "bg-blue-300 text-neutral-100 px-6 float-right";
   }
 }
+
+// TODO: click handlers
 
 export function FormButton({ name }: FormButtonProps) {
   return <button className={`text-md py-3 rounded-lg ${BUTTON_STYLES(name)}`}>{name}</button>;

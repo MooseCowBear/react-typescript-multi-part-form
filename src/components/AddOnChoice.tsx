@@ -12,6 +12,8 @@ type AddOnChoiceProps = {
   monthly: boolean;
 };
 
+// TODO: move the form wrapper to the form fields component 
+
 export function AddOnChoice({ addOn, monthly }: AddOnChoiceProps) {
   const [isChecked, setIsChecked] = useState(false);
 

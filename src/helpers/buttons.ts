@@ -3,7 +3,7 @@ export const buttons = (step: number) => {
     case 1:
       return ["Next Step"];
     case 4:
-      return ["Confirm"];
+      return ["Go Back", "Confirm"];
     default:
       return ["Go Back", "Next Step"];
   }

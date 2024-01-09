@@ -1,4 +1,5 @@
 // will use enum to return correct form for screen
+import { FormFieldsFour } from "./FormFieldsFour";
 import { FormFieldsOne } from "./FormFieldsOne";
 import { FormFieldsThree } from "./FormFieldsThree";
 import { FormFieldsTwo } from "./FormFieldsTwo";
@@ -16,8 +17,10 @@ export function FormContent({ step }: FormContentProps) {
         return <FormFieldsOne />
       case 2:
         return <FormFieldsTwo />
-      default:
+      case 3:
         return <FormFieldsThree monthly={true} />
+      default: 
+        return <FormFieldsFour />
     }
   }
   return content();
