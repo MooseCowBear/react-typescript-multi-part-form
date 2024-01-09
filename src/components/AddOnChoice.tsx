@@ -18,20 +18,22 @@ export function AddOnChoice({ addOn, monthly }: AddOnChoiceProps) {
   return (
     <form
       onClick={() => setIsChecked((val) => !val)}
-      className={`group border rounded-lg flex items-center justify-between p-5 gap-16 hover:border-blue-300 hover:cursor-pointer ${
+      className={`group border rounded-lg flex items-center justify-between px-4 py-3 md:p-5 lg:gap-16 hover:border-blue-300 hover:cursor-pointer ${
         isChecked ? "bg-blue-300/5 border-blue-300" : "border-neutral-400"
       }`}
     >
-      <label className="flex items-center gap-6 group-hover:border-blue-300 group-hover:cursor-pointer">
+      <label className="flex items-center gap-2 md:gap-6 group-hover:border-blue-300 group-hover:cursor-pointer">
         <input
           disabled={true}
           checked={isChecked}
           type="checkbox"
-          className="group-hover:cursor-pointer relative peer appearance-none w-5 h-5 border-2 border-neutral-400 rounded checked:border-blue-300 checked:bg-blue-300"
+          className="shrink-0 group-hover:cursor-pointer relative peer appearance-none w-5 h-5 border-2 border-neutral-400 rounded checked:border-blue-300 checked:bg-blue-300"
         />
         <span className="flex flex-col items-start">
-          <span className="font-bold">{addOn.title}</span>
-          <span className="text-neutral-500">{addOn.subtitle}</span>
+          <span className="whitespace-nowrap font-bold">{addOn.title}</span>
+          <span className="whitespace-nowrap text-sm text-neutral-500">
+            {addOn.subtitle}
+          </span>
         </span>
 
         <svg
@@ -45,7 +47,7 @@ export function AddOnChoice({ addOn, monthly }: AddOnChoiceProps) {
           />
         </svg>
       </label>
-      <span className="text-blue-300">{`+ $${
+      <span className="whitespace-nowrap text-sm text-blue-300">{`+ $${
         monthly ? addOn.monthly : addOn.yearly
       }/${monthly ? "mo" : "yr"}`}</span>
     </form>

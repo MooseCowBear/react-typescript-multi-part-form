@@ -9,7 +9,7 @@ type SidebarProps = {
 
 export function Sidebar({ currentStep, setStep }: SidebarProps) {
   return (
-    <div className="relative">
+    <div className="relative md:w-[275px]">
       <img src={desktopImg} alt="background" className="hidden md:block" />
       <img
         src={mobileImg}
