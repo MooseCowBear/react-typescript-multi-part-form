@@ -5,7 +5,7 @@ import { buttons } from "./helpers/buttons";
 import { FormButton } from "./components/FormButton";
 
 function App() {
-  const [currentStep, setCurrentStep] = useState(2);
+  const [currentStep, setCurrentStep] = useState(1);
 
   return (
     <>
@@ -14,7 +14,7 @@ function App() {
         <Form step={currentStep} />
         <div className="absolute p-3 bg-neutral-100 bottom-0 left-0 block w-full md:hidden">
           {buttons(currentStep).map((button) => (
-            <FormButton name={button} />
+            <FormButton key={button} name={button} />
           ))}
         </div>
       </div>
