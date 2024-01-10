@@ -1,6 +1,7 @@
 import arcadeIcon from "../assets/icon-arcade.svg";
 import advancedIcon from "../assets/icon-advanced.svg";
 import proIcon from "../assets/icon-pro.svg";
+import { useFormContext } from "../contexts/FormContext";
 
 interface Plan {
   title: string;
@@ -11,10 +12,11 @@ interface Plan {
 
 type PlanCardProps = {
   plan: Plan;
-  monthly: boolean;
 };
 
-export function PlanCard({ plan, monthly }: PlanCardProps) {
+export function PlanCard({ plan }: PlanCardProps) {
+  const { monthly } = useFormContext();
+
   const icon = () => {
     switch (plan.title) {
       case "Arcade":

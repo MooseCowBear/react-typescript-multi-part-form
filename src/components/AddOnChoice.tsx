@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useFormContext } from "../contexts/FormContext";
 
 interface AddOn {
   title: string;
@@ -9,12 +10,12 @@ interface AddOn {
 
 type AddOnChoiceProps = {
   addOn: AddOn;
-  monthly: boolean;
 };
 
 // TODO: move the form wrapper to the form fields component 
 
-export function AddOnChoice({ addOn, monthly }: AddOnChoiceProps) {
+export function AddOnChoice({ addOn }: AddOnChoiceProps) {
+  const { monthly } = useFormContext();
   const [isChecked, setIsChecked] = useState(false);
 
   return (

@@ -14,6 +14,10 @@ const BUTTON_STYLES = (name: string) => {
 }
 
 // TODO: click handlers
+/* if step 1 & "Next Step", need validation of name, email, phone! else won't 
+if confirm, then 1. console.log submitted or something as a placeholder for actual submission
+also reset the context to the initial values
+*/
 
 export function FormButton({ name }: FormButtonProps) {
   return <button className={`text-md py-3 rounded-lg ${BUTTON_STYLES(name)}`}>{name}</button>;

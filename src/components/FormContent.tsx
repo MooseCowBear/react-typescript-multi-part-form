@@ -18,7 +18,7 @@ export function FormContent({ step }: FormContentProps) {
       case 2:
         return <FormFieldsTwo />
       case 3:
-        return <FormFieldsThree monthly={true} />
+        return <FormFieldsThree />
       default: 
         return <FormFieldsFour />
     }

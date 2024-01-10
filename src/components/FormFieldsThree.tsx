@@ -1,15 +1,11 @@
 import { addOns } from "../data/data";
-import { AddOnChoice } from "./addOnChoice";
+import { AddOnChoice } from "./AddOnChoice";
 
-type FormFieldsThreeProps = {
-  monthly: boolean;
-};
-
-export function FormFieldsThree({ monthly }: FormFieldsThreeProps) {
+export function FormFieldsThree() {
   return (
     <div className="flex flex-col gap-4">
       {addOns.map((addOn) => (
-        <AddOnChoice key={addOn.title} addOn={addOn} monthly={monthly} />
+        <AddOnChoice key={addOn.title} addOn={addOn} />
       ))}
     </div>
   );
