@@ -1,5 +1,5 @@
 import { useStepContext } from "../contexts/StepContext";
-import { buttons } from "../helpers/buttons";
+import { buttons } from "../utils/buttons";
 import { FormButton } from "./FormButton";
 
 type FormButtonsWrapperProps = {

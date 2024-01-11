@@ -1,6 +1,7 @@
 import { useFormContext } from "../contexts/FormContext";
-import { total } from "../helpers/calculations";
+import { total } from "../utils/calculations";
 import { AddOnSummary } from "./AddOnSummary";
+import { priceFormat } from "../utils/price";
 
 export function FormFieldsFour() {
   const { selectedPlan, addOns, monthly } = useFormContext();
@@ -17,9 +18,11 @@ export function FormFieldsFour() {
               Change
             </button>
           </div>
-          <div className="font-medium">{`$${
-            monthly ? selectedPlan.monthly : selectedPlan.yearly
-          }/${monthly ? "mo" : "yr"}`}</div>
+          <div className="font-medium">{`${
+            monthly
+              ? priceFormat(selectedPlan.monthly, monthly)
+              : priceFormat(selectedPlan.yearly, monthly)
+          }`}</div>
         </div>
         {addOns.length > 0 && (
           <hr className="bg-neutral-400 border-none h-[2px]" />
@@ -32,11 +35,10 @@ export function FormFieldsFour() {
         <span className="text-neutral-500 text-sm">{`Total ${
           monthly ? "(per month)" : "(per year)"
         }`}</span>
-        <span className="text-blue-300 font-bold">{`+$${total(
-          selectedPlan,
-          addOns,
+        <span className="text-blue-300 font-bold">{`+${priceFormat(
+          total(selectedPlan, addOns, monthly),
           monthly
-        )}/${monthly ? "mo" : "yr"}`}</span>
+        )}`}</span>
       </div>
     </div>
   );

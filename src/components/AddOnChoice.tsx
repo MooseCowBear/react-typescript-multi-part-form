@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useFormContext } from "../contexts/FormContext";
+import { priceFormat } from "../utils/price";
 
 type AddOnChoiceProps = {
   addOn: AddOn;
@@ -7,7 +8,7 @@ type AddOnChoiceProps = {
 
 export function AddOnChoice({ addOn }: AddOnChoiceProps) {
   const { monthly, setAddOns, addOns } = useFormContext();
-  const initialCheckedState = addOns.find((a) => a.title === addOn.title)
+  const initialCheckedState = addOns.find((a) => a.title === addOn.title);
   const [isChecked, setIsChecked] = useState(!!initialCheckedState); // does this need to be a state?
 
   const clickHandler = () => {
@@ -53,9 +54,11 @@ export function AddOnChoice({ addOn }: AddOnChoiceProps) {
           />
         </svg>
       </label>
-      <span className="whitespace-nowrap text-sm text-blue-300">{`+ $${
-        monthly ? addOn.monthly : addOn.yearly
-      }/${monthly ? "mo" : "yr"}`}</span>
+      <span className="whitespace-nowrap text-sm text-blue-300">{`+${
+        monthly
+          ? priceFormat(addOn.monthly, monthly)
+          : priceFormat(addOn.yearly, monthly)
+      }`}</span>
     </form>
   );
 }

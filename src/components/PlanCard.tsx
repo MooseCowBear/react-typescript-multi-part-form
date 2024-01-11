@@ -2,6 +2,7 @@ import arcadeIcon from "../assets/icon-arcade.svg";
 import advancedIcon from "../assets/icon-advanced.svg";
 import proIcon from "../assets/icon-pro.svg";
 import { useFormContext } from "../contexts/FormContext";
+import { priceFormat } from "../utils/price";
 
 type PlanCardProps = {
   plan: Plan;
@@ -23,11 +24,11 @@ export function PlanCard({ plan }: PlanCardProps) {
 
   const isSelectedPlan = () => {
     return selectedPlan.title === plan.title;
-  }
+  };
 
   const clickHandler = () => {
     setSelectedPlan(plan);
-  }
+  };
 
   return (
     <button
@@ -41,9 +42,11 @@ export function PlanCard({ plan }: PlanCardProps) {
       <img src={icon()} />
       <div className="flex flex-col items-start">
         <h3 className="font-medium leading-tight">{plan.title}</h3>
-        <p className="text-neutral-500">{`$${
-          monthly ? plan.monthly : plan.yearly
-        }/${monthly ? "mo" : "yr"}`}</p>
+        <p className="text-neutral-500">{`${
+          monthly
+            ? priceFormat(plan.monthly, monthly)
+            : priceFormat(plan.yearly, monthly)
+        }`}</p>
       </div>
     </button>
   );
