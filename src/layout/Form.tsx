@@ -33,7 +33,7 @@ export function Form() {
   return (
     <FormProvider>
       <div className="bg-neutral-300 md:bg-neutral-100 relative md:h-full p-5 md:p-0 min-h-[520px]">
-        <div className="absolute w-11/12 top-0 left-1/2 translate-x-[-50%] translate-y-[-15%] rounded-xl py-8 px-6 md:left-0 md:translate-x-[0%] md:translate-y-[0%] md:py-10 md:px-20 md:relative bg-neutral-100 md:flex md:flex-col md:justify-between md:h-full md:w-auto md-bg-transparent">
+        <div className="absolute w-11/12 top-[-4.5rem] left-1/2 translate-x-[-50%] rounded-xl py-8 px-6 md:left-0 md:translate-x-[0%] md:top-0 md:py-10 md:px-20 md:relative bg-neutral-100 md:flex md:flex-col md:justify-between md:h-full md:w-auto md-bg-transparent">
           <div className="flex flex-col gap-6 md:gap-8">
             <FormHeader
               title={FORM_HEADERS[step - 1].title}
