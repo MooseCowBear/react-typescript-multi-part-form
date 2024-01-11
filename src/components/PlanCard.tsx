@@ -3,13 +3,6 @@ import advancedIcon from "../assets/icon-advanced.svg";
 import proIcon from "../assets/icon-pro.svg";
 import { useFormContext } from "../contexts/FormContext";
 
-interface Plan {
-  title: string;
-  monthly: number;
-  yearly: number;
-  promo: string;
-}
-
 type PlanCardProps = {
   plan: Plan;
 };

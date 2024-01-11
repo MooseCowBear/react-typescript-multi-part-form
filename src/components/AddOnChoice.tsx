@@ -1,18 +1,9 @@
 import { useState } from "react";
 import { useFormContext } from "../contexts/FormContext";
 
-interface AddOn {
-  title: string;
-  subtitle: string;
-  monthly: number;
-  yearly: number;
-}
-
 type AddOnChoiceProps = {
   addOn: AddOn;
 };
-
-// TODO: move the form wrapper to the form fields component
 
 export function AddOnChoice({ addOn }: AddOnChoiceProps) {
   const { monthly, setAddOns, addOns } = useFormContext();

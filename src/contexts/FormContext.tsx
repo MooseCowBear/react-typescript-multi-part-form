@@ -1,29 +1,9 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { plans } from "../data/data";
 
-// interface PersonalInfo {
-//   "name": string;
-//   "email": string;
-//   "phone": string;
-// }
-
-// bc form input passes the string name of the property it updates
+// for personalInfo, bc form input passes the string name of the property it updates
 interface Map {
   [key: string]: string | undefined;
-}
-
-interface AddOn {
-  title: string;
-  subtitle: string;
-  monthly: number;
-  yearly: number;
-}
-
-interface Plan {
-  title: string;
-  monthly: number;
-  yearly: number;
-  promo: string;
 }
 
 type FormContextProviderProps = {

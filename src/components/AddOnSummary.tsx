@@ -1,13 +1,5 @@
 import { useFormContext } from "../contexts/FormContext";
 
-interface AddOn {
-  // TODO: move all the shared interfaces to file?
-  title: string;
-  subtitle: string;
-  monthly: number;
-  yearly: number;
-}
-
 type AddOnSummaryProps = {
   addOn: AddOn;
 };
