@@ -37,7 +37,7 @@ export function Form() {
               title={FORM_HEADERS[step - 1].title}
               subtitle={FORM_HEADERS[step - 1].subtitle}
             />
-            <FormContent step={step} />
+            <FormContent />
           </div>
           <FormButtonsWrapper classes="hidden md:block w-full" />
         </div>

@@ -1,25 +1,26 @@
-// will use enum to return correct form for screen
+import { useStepContext } from "../contexts/StepContext";
 import { FormFieldsFour } from "./FormFieldsFour";
 import { FormFieldsOne } from "./FormFieldsOne";
 import { FormFieldsThree } from "./FormFieldsThree";
 import { FormFieldsTwo } from "./FormFieldsTwo";
+import { ThankYou } from "./ThankYou";
 
-type FormContentProps = {
-  step: number;
-};
+export function FormContent() {
+  const { step } = useStepContext();
 
-export function FormContent({ step }: FormContentProps) {
   const content = () => {
-    switch(step) {
+    switch (step) {
       case 1:
-        return <FormFieldsOne />
+        return <FormFieldsOne />;
       case 2:
-        return <FormFieldsTwo />
+        return <FormFieldsTwo />;
       case 3:
-        return <FormFieldsThree />
-      default: 
-        return <FormFieldsFour />
+        return <FormFieldsThree />;
+      case 4:
+        return <FormFieldsFour />;
+      default:
+        return <ThankYou />;
     }
-  }
+  };
   return content();
 }
