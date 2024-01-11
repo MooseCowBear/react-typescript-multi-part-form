@@ -18,7 +18,7 @@ export function useStepContext() {
 }
 
 export function StepProvider({ children }: StepContextProviderProps) {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(5); //change this back
 
   return (
     <StepContext.Provider value={{ step, setStep }}>

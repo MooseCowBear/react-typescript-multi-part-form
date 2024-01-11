@@ -28,6 +28,8 @@ const FORM_HEADERS = [
 export function Form() {
   const { step } = useStepContext();
 
+  if (step > 4) return null;
+
   return (
     <FormProvider>
       <div className="bg-neutral-300 md:bg-neutral-100 relative md:h-full p-5 md:p-0 min-h-[520px]">

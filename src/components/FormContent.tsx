@@ -3,7 +3,6 @@ import { FormFieldsFour } from "./FormFieldsFour";
 import { FormFieldsOne } from "./FormFieldsOne";
 import { FormFieldsThree } from "./FormFieldsThree";
 import { FormFieldsTwo } from "./FormFieldsTwo";
-import { ThankYou } from "./ThankYou";
 
 export function FormContent() {
   const { step } = useStepContext();
@@ -16,10 +15,8 @@ export function FormContent() {
         return <FormFieldsTwo />;
       case 3:
         return <FormFieldsThree />;
-      case 4:
-        return <FormFieldsFour />;
       default:
-        return <ThankYou />;
+        return <FormFieldsFour />;
     }
   };
   return content();

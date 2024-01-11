@@ -23,6 +23,8 @@ export function FormInput({
     });
   };
 
+  // TODO: validations on blur
+
   return (
     <div className="flex flex-col gap-1">
       <label htmlFor={name} className="text-sm">

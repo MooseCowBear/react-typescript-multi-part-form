@@ -42,6 +42,7 @@ export function FormButton({ name }: FormButtonProps) {
         updateStep(1);
         break;
       default:
+        updateStep(1); 
         handleSubmission();
     }
   };

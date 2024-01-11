@@ -11,11 +11,16 @@ export function SidebarButton({
 }: SidebarButtonProps) {
   const {step, setStep} = useStepContext();
 
+  const clickHandler = () => {
+    if (step === 5) return;
+    setStep(num);
+  }
+
   return (
-    <button onClick={() => setStep(num)} className="flex gap-7 items-center">
+    <button onClick={clickHandler} className="flex gap-7 items-center">
       <span
         className={`rounded-full w-9 h-9 flex items-center justify-center border ${
-          step === num
+          step === num || step === 5 && num === 4
             ? "bg-blue-100 border-blue-100 text-blue-400"
             : "bg-transparent border-neutral-100 text-neutral-400"
         }`}
