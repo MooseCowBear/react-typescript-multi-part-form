@@ -1,3 +1,5 @@
+import { useStepContext } from "../contexts/StepContext";
+
 type FormButtonProps = {
   name: string;
 };
@@ -13,15 +15,37 @@ const BUTTON_STYLES = (name: string) => {
   }
 };
 
-// TODO: click handlers
-/* if step 1 & "Next Step", need validation of name, email, phone! else won't 
-if confirm, then 1. console.log submitted or something as a placeholder for actual submission
-also reset the context to the initial values
-*/
-
 export function FormButton({ name }: FormButtonProps) {
+  const { setStep } = useStepContext();
+
+  const updateStep = (offset: number) => {
+    setStep((s) => s + offset);
+  };
+
+  const handleSubmission = () => {
+    console.log("form submitted!");
+
+    // add resetting of context state after updating form component so all buttons will have access to form context
+  };
+
+  const clickHandler = () => {
+    switch (name) {
+      case "Go Back":
+        updateStep(-1);
+        break;
+      case "Next Step":
+        updateStep(1);
+        break;
+      default:
+        handleSubmission();
+    }
+  };
+
   return (
-    <button className={`text-md py-3 rounded-lg ${BUTTON_STYLES(name)}`}>
+    <button
+      onClick={clickHandler}
+      className={`text-md py-3 rounded-lg ${BUTTON_STYLES(name)}`}
+    >
       {name}
     </button>
   );
