@@ -3,7 +3,7 @@ type FormButtonProps = {
 };
 
 const BUTTON_STYLES = (name: string) => {
-  switch(name) {
+  switch (name) {
     case "Go Back":
       return "bg-transparent text-neutral-500 float-left";
     case "Next Step":
@@ -11,7 +11,7 @@ const BUTTON_STYLES = (name: string) => {
     default:
       return "bg-blue-300 text-neutral-100 px-6 float-right";
   }
-}
+};
 
 // TODO: click handlers
 /* if step 1 & "Next Step", need validation of name, email, phone! else won't 
@@ -20,5 +20,9 @@ also reset the context to the initial values
 */
 
 export function FormButton({ name }: FormButtonProps) {
-  return <button className={`text-md py-3 rounded-lg ${BUTTON_STYLES(name)}`}>{name}</button>;
+  return (
+    <button className={`text-md py-3 rounded-lg ${BUTTON_STYLES(name)}`}>
+      {name}
+    </button>
+  );
 }

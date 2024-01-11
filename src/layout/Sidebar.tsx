@@ -2,12 +2,7 @@ import desktopImg from "../assets/bg-sidebar-desktop.svg";
 import mobileImg from "../assets/bg-sidebar-mobile.svg";
 import { SidebarButton } from "../components/SidebarButton";
 
-type SidebarProps = {
-  currentStep: number;
-  setStep: (stepNum: number) => void;
-};
-
-export function Sidebar({ currentStep, setStep }: SidebarProps) {
+export function Sidebar() {
   return (
     <div className="relative md:w-[275px]">
       <img src={desktopImg} alt="background" className="hidden md:block" />
@@ -17,30 +12,10 @@ export function Sidebar({ currentStep, setStep }: SidebarProps) {
         className="block w-full md:hidden"
       />
       <div className="absolute top-1/4 left-1/2 translate-y-[-40%] md:translate-y-[-40%] translate-x-[-50%] md:translate-x-[-60%] flex md:flex-col gap-4 md:gap-6">
-        <SidebarButton
-          currentStep={currentStep}
-          num={1}
-          heading="Your Info"
-          setStep={setStep}
-        />
-        <SidebarButton
-          currentStep={currentStep}
-          num={2}
-          heading="Select Plan"
-          setStep={setStep}
-        />
-        <SidebarButton
-          currentStep={currentStep}
-          num={3}
-          heading="Add Ons"
-          setStep={setStep}
-        />
-        <SidebarButton
-          currentStep={currentStep}
-          num={4}
-          heading="Summary"
-          setStep={setStep}
-        />
+        <SidebarButton num={1} heading="Your Info" />
+        <SidebarButton num={2} heading="Select Plan" />
+        <SidebarButton num={3} heading="Add Ons" />
+        <SidebarButton num={4} heading="Summary" />
       </div>
     </div>
   );

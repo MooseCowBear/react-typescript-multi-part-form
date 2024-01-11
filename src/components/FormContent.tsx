@@ -8,8 +8,6 @@ type FormContentProps = {
   step: number;
 };
 
-// TODO: need to lift monthly state, placeholder for now
-
 export function FormContent({ step }: FormContentProps) {
   const content = () => {
     switch(step) {

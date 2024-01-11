@@ -1,12 +1,8 @@
-import { FormButton } from "../components/FormButton";
 import { FormContent } from "../components/FormContent";
 import { FormHeader } from "../components/FormHeader";
+import { FormButtonsWrapper } from "../components/FromButtonsWrapper";
 import { FormProvider } from "../contexts/FormContext";
-import { buttons } from "../helpers/buttons";
-
-type FormProps = {
-  step: number;
-};
+import { useStepContext } from "../contexts/StepContext";
 
 const FORM_HEADERS = [
   {
@@ -29,14 +25,9 @@ const FORM_HEADERS = [
 
 // TODO: make sure size of card doesn't change screen to screen (on large screens)
 
-// MARK: form content needs form info and step/monthly information
-// MARK: form buttons AND sidebar buttons need step information (but not monthly information) 
-// but confirm would want to have form info if we were really submitting the form to a backend
+export function Form() {
+  const { step } = useStepContext();
 
-// so form info & monthly will belong to FORM 
-// step will belong to APP
-
-export function Form({ step }: FormProps) {
   return (
     <FormProvider>
       <div className="absolute w-11/12 top-0 left-1/2 translate-x-[-50%] translate-y-[-15%] rounded-xl py-8 px-6 md:left-0 md:translate-x-[0%] md:translate-y-[0%] md:py-10 md:px-20 md:relative bg-neutral-100 md:flex md:flex-col md:justify-between md:h-full md:w-auto md-bg-transparent">
@@ -47,11 +38,7 @@ export function Form({ step }: FormProps) {
           />
           <FormContent step={step} />
         </div>
-        <div className="hidden md:block w-full">
-          {buttons(step).map((button) => (
-            <FormButton key={button} name={button} />
-          ))}
-        </div>
+        <FormButtonsWrapper classes="hidden md:block w-full" />
       </div>
     </FormProvider>
   );

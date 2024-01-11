@@ -11,13 +11,13 @@ type StepContextType = {
 
 const StepContext = createContext<StepContextType | null>(null);
 
-export function useFormContext() {
+export function useStepContext() {
   const value = useContext(StepContext);
-  if (value === null) throw Error("Can't be used outside FormContextProvider");
+  if (value === null) throw Error("Can't be used outside StepContextProvider");
   return value;
 }
 
-export function FormProvider({ children }: StepContextProviderProps) {
+export function StepProvider({ children }: StepContextProviderProps) {
   const [step, setStep] = useState(1);
 
   return (
