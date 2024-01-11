@@ -1,4 +1,6 @@
+import { useFormContext } from "../contexts/FormContext";
 import { useStepContext } from "../contexts/StepContext";
+import { plans } from "../data/data";
 
 type FormButtonProps = {
   name: string;
@@ -17,6 +19,7 @@ const BUTTON_STYLES = (name: string) => {
 
 export function FormButton({ name }: FormButtonProps) {
   const { setStep } = useStepContext();
+  const { setPersonalInfo, setSelectedPlan, setAddOns } = useFormContext();
 
   const updateStep = (offset: number) => {
     setStep((s) => s + offset);
@@ -25,7 +28,9 @@ export function FormButton({ name }: FormButtonProps) {
   const handleSubmission = () => {
     console.log("form submitted!");
 
-    // add resetting of context state after updating form component so all buttons will have access to form context
+    setPersonalInfo({ name: "", email: "", phone: "" });
+    setSelectedPlan(plans[0]);
+    setAddOns([]);
   };
 
   const clickHandler = () => {
