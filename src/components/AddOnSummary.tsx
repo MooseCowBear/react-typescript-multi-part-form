@@ -17,7 +17,7 @@ export function AddOnSummary({ addOn }: AddOnSummaryProps) {
 
   return (
     <div className="flex justify-between items-center">
-      <h2 className="text-netural-500 text-sm">{addOn.title}</h2>
+      <h2 className="text-neutral-500 text-sm">{addOn.title}</h2>
       <span className="text-sm">{`+$${monthly ? addOn.monthly : addOn.yearly}/${
         monthly ? "mo" : "yr"
       }`}</span>
