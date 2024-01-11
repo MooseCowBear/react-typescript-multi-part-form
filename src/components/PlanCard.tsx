@@ -15,7 +15,7 @@ type PlanCardProps = {
 };
 
 export function PlanCard({ plan }: PlanCardProps) {
-  const { monthly } = useFormContext();
+  const { monthly, selectedPlan, setSelectedPlan } = useFormContext();
 
   const icon = () => {
     switch (plan.title) {
@@ -28,10 +28,23 @@ export function PlanCard({ plan }: PlanCardProps) {
     }
   };
 
-  // TODO: need state update
+  const isSelectedPlan = () => {
+    return selectedPlan.title === plan.title;
+  }
+
+  const clickHandler = () => {
+    setSelectedPlan(plan);
+  }
 
   return (
-    <button className="flex md:flex-col items-start md:justify-between border border-neutral-400 rounded-lg py-4 px-5 md:py-5 md:px-[clamp(2px,_1vw,_1.25rem)] lg:p-5 gap-3 md:gap-10 hover:cursor-pointer hover:border-blue-300 hover:bg-blue-300/5">
+    <button
+      onClick={clickHandler}
+      className={`flex md:flex-col items-start md:justify-between border rounded-lg py-4 px-5 md:py-5 md:px-[clamp(2px,_1vw,_1.25rem)] lg:p-5 gap-3 md:gap-10 hover:cursor-pointer hover:border-blue-300 ${
+        isSelectedPlan()
+          ? "bg-blue-300/5 border-blue-300"
+          : "border-neutral-400"
+      }`}
+    >
       <img src={icon()} />
       <div className="flex flex-col items-start">
         <h3 className="font-medium leading-tight">{plan.title}</h3>
