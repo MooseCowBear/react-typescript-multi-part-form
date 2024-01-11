@@ -47,6 +47,7 @@ export function PlanCard({ plan }: PlanCardProps) {
             ? priceFormat(plan.monthly, monthly)
             : priceFormat(plan.yearly, monthly)
         }`}</p>
+        {!monthly && <small className="text-xs mt-1">{plan.promo}</small>}
       </div>
     </button>
   );
