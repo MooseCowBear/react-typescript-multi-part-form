@@ -6,6 +6,14 @@ type FormButtonsWrapperProps = {
   classes: string;
 };
 
+// TODO: click handlers
+
+/* 
+go back: step = step -1
+confirm: fake submission handler + reset the context to initial context
+
+*/
+
 export function FormButtonsWrapper({ classes }: FormButtonsWrapperProps) {
   const { step } = useStepContext();
 

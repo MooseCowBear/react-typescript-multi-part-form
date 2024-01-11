@@ -1,6 +1,6 @@
 import { FormContent } from "../components/FormContent";
 import { FormHeader } from "../components/FormHeader";
-import { FormButtonsWrapper } from "../components/FromButtonsWrapper";
+import { FormButtonsWrapper } from "../components/FormButtonsWrapper";
 import { FormProvider } from "../contexts/FormContext";
 import { useStepContext } from "../contexts/StepContext";
 

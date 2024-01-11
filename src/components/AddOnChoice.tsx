@@ -17,7 +17,7 @@ type AddOnChoiceProps = {
 export function AddOnChoice({ addOn }: AddOnChoiceProps) {
   const { monthly, setAddOns, addOns } = useFormContext();
   const initialCheckedState = addOns.find((a) => a.title === addOn.title)
-  const [isChecked, setIsChecked] = useState(!!initialCheckedState); 
+  const [isChecked, setIsChecked] = useState(!!initialCheckedState); // does this need to be a state?
 
   const clickHandler = () => {
     let data = [...addOns];

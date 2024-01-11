@@ -1,7 +1,9 @@
 import { Sidebar } from "./layout/Sidebar";
 import { Form } from "./layout/Form";
 import { StepProvider } from "./contexts/StepContext";
-import { FormButtonsWrapper } from "./components/FromButtonsWrapper";
+import { FormButtonsWrapper } from "./components/FormButtonsWrapper";
+
+// form buttons need access to form context, so this has to change
 
 function App() {
   return (
