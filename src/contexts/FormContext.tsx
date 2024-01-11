@@ -3,7 +3,7 @@ import { plans } from "../data/data";
 
 // for personalInfo, bc form input passes the string name of the property it updates
 interface Map {
-  [key: string]: string | undefined;
+  [key: string]: string;
 }
 
 type FormContextProviderProps = {
