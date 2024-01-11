@@ -12,15 +12,27 @@ type AddOnChoiceProps = {
   addOn: AddOn;
 };
 
-// TODO: move the form wrapper to the form fields component 
+// TODO: move the form wrapper to the form fields component
 
 export function AddOnChoice({ addOn }: AddOnChoiceProps) {
-  const { monthly } = useFormContext();
-  const [isChecked, setIsChecked] = useState(false);
+  const { monthly, setAddOns, addOns } = useFormContext();
+  const initialCheckedState = addOns.find((a) => a.title === addOn.title)
+  const [isChecked, setIsChecked] = useState(!!initialCheckedState); 
+
+  const clickHandler = () => {
+    let data = [...addOns];
+    if (isChecked) {
+      data = data.filter((a) => a.title !== addOn.title);
+    } else {
+      data.push(addOn);
+    }
+    setAddOns(data);
+    setIsChecked((val) => !val);
+  };
 
   return (
     <form
-      onClick={() => setIsChecked((val) => !val)}
+      onClick={clickHandler}
       className={`group border rounded-lg flex items-center justify-between px-4 py-3 md:p-5 lg:gap-16 hover:border-blue-300 hover:cursor-pointer ${
         isChecked ? "bg-blue-300/5 border-blue-300" : "border-neutral-400"
       }`}
