@@ -5,19 +5,14 @@ type SidebarButtonProps = {
   heading: string;
 };
 
-export function SidebarButton({
+export function StepIndicator({
   num,
   heading,
 }: SidebarButtonProps) {
-  const {step, setStep} = useStepContext();
-
-  const clickHandler = () => {
-    if (step === 5) return;
-    setStep(num);
-  }
+  const {step } = useStepContext();
 
   return (
-    <button onClick={clickHandler} className="flex gap-7 items-center">
+    <div className="flex gap-7 items-center">
       <span
         className={`rounded-full w-9 h-9 flex items-center justify-center border ${
           step === num || step === 5 && num === 4
@@ -33,6 +28,6 @@ export function SidebarButton({
           {heading}
         </span>
       </h2>
-    </button>
+    </div>
   );
 }
