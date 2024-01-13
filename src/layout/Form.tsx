@@ -23,8 +23,6 @@ const FORM_HEADERS = [
   },
 ];
 
-// TODO: make sure size of card doesn't change screen to screen (on large screens)
-
 export function Form() {
   const { step } = useStepContext();
 

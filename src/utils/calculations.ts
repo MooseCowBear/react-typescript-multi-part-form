@@ -1,17 +1,3 @@
-interface AddOn {
-  title: string;
-  subtitle: string;
-  monthly: number;
-  yearly: number;
-}
-
-interface Plan {
-  title: string;
-  monthly: number;
-  yearly: number;
-  promo: string;
-}
-
 type AddOns = AddOn[];
 
 export const total = (plan: Plan, addOns: AddOns, monthly: boolean) => {
