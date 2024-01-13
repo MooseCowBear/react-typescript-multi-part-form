@@ -2,9 +2,15 @@ import { useFormContext } from "../contexts/FormContext";
 import { total } from "../utils/calculations";
 import { AddOnSummary } from "./AddOnSummary";
 import { priceFormat } from "../utils/price";
+import { useStepContext } from "../contexts/StepContext";
 
 export function FormFieldsFour() {
   const { selectedPlan, addOns, monthly } = useFormContext();
+  const { setStep } = useStepContext();
+
+  const clickHandler = () => {
+    setStep(2);
+  };
 
   return (
     <div className="flex flex-col items-stretch">
@@ -14,7 +20,10 @@ export function FormFieldsFour() {
             <h2 className="font-medium">{`${selectedPlan.title} (${
               monthly ? "Monthly" : "Yearly"
             })`}</h2>
-            <button className="text-sm underline text-neutral-500">
+            <button
+              onClick={clickHandler}
+              className="text-sm underline text-neutral-500"
+            >
               Change
             </button>
           </div>
