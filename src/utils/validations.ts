@@ -8,7 +8,7 @@ export const validateEmail = (email: string) => {
 };
 
 export const validatePhone = (phone: string) => {
-  const phoneRegex = /^\+?[0-9]{1,5}\s?\d{3}\s?\d{3}\s?\d{3}$/;
+  const phoneRegex = /^([0|+[0-9]{1,5})?\s?(\d{3}\s?\d{3}\s?\d{3})$/;
   return phoneRegex.test(phone);
 };
 
@@ -21,4 +21,8 @@ export const getValidator = (inputName: string) => {
     default:
       return validatePhone;
   }
+};
+
+export const validated = (name: string, email: string, phone: string) => {
+  return validateName(name) && validateEmail(email) && validatePhone(phone);
 };
