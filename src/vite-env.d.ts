@@ -12,3 +12,9 @@ type Plan = {
   yearly: number;
   promo: string;
 };
+
+type PersonalInfo = {
+  name: string;
+  email: string;
+  phone: string;
+}

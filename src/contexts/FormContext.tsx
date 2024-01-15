@@ -1,18 +1,13 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { plans } from "../data/data";
 
-// for personalInfo, bc form input passes the string name of the property it updates
-interface Map {
-  [key: string]: string;
-}
-
 type FormContextProviderProps = {
   children: ReactNode;
 };
 
 type FormContextType = {
-  personalInfo: Map;
-  setPersonalInfo: React.Dispatch<React.SetStateAction<Map>>;
+  personalInfo: PersonalInfo;
+  setPersonalInfo: React.Dispatch<React.SetStateAction<PersonalInfo>>;
   monthly: boolean;
   setMonthly: React.Dispatch<React.SetStateAction<boolean>>;
   selectedPlan: Plan;
@@ -30,7 +25,7 @@ export function useFormContext() {
 }
 
 export function FormProvider({ children }: FormContextProviderProps) {
-  const intialPersonalInfo: Map = {
+  const intialPersonalInfo: PersonalInfo = {
     name: "",
     email: "",
     phone: "",
