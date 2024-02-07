@@ -14,6 +14,8 @@ type FormContextType = {
   setSelectedPlan: React.Dispatch<React.SetStateAction<Plan>>;
   addOns: AddOn[];
   setAddOns: React.Dispatch<React.SetStateAction<AddOn[]>>;
+  valid: InputValidity;
+  setValid: React.Dispatch<React.SetStateAction<InputValidity>>;
 };
 
 const FormContext = createContext<FormContextType | null>(null);
@@ -30,11 +32,17 @@ export function FormProvider({ children }: FormContextProviderProps) {
     email: "",
     phone: "",
   };
+  const intitialValidity: InputValidity = {
+    name: true,
+    email: true,
+    phone: true,
+  };
   const [personalInfo, setPersonalInfo] = useState(intialPersonalInfo);
   const [monthly, setMonthly] = useState(true);
   const [selectedPlan, setSelectedPlan] = useState(plans[0]);
   const initialAddOns: AddOn[] = []; // Q: is there a better way to do this?
   const [addOns, setAddOns] = useState(initialAddOns);
+  const [valid, setValid] = useState(intitialValidity);
 
   return (
     <FormContext.Provider
@@ -47,6 +55,8 @@ export function FormProvider({ children }: FormContextProviderProps) {
         setSelectedPlan,
         addOns,
         setAddOns,
+        valid,
+        setValid,
       }}
     >
       {children}

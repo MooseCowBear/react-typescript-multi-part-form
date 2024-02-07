@@ -18,3 +18,9 @@ type PersonalInfo = {
   email: string;
   phone: string;
 }
+
+type InputValidity = {
+  name: boolean;
+  email: boolean;
+  phone: boolean;
+}

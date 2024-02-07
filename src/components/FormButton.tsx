@@ -1,7 +1,12 @@
 import { useFormContext } from "../contexts/FormContext";
 import { useStepContext } from "../contexts/StepContext";
 import { plans } from "../data/data";
-import { validated } from "../utils/validations";
+import {
+  validateEmail,
+  validateName,
+  validatePhone,
+  validated,
+} from "../utils/validations";
 
 type FormButtonProps = {
   name: string;
@@ -20,8 +25,13 @@ const BUTTON_STYLES = (name: string) => {
 
 export function FormButton({ name }: FormButtonProps) {
   const { setStep } = useStepContext();
-  const { personalInfo, setPersonalInfo, setSelectedPlan, setAddOns } =
-    useFormContext();
+  const {
+    personalInfo,
+    setPersonalInfo,
+    setSelectedPlan,
+    setAddOns,
+    setValid,
+  } = useFormContext();
 
   const updateStep = (offset: number) => {
     setStep((s) => s + offset);
@@ -30,6 +40,14 @@ export function FormButton({ name }: FormButtonProps) {
   const advanceStep = () => {
     if (validated(personalInfo.name, personalInfo.email, personalInfo.phone)) {
       updateStep(1);
+    } else {
+      setValid((curr) => {
+        const data = { ...curr };
+        data.name = validateName(personalInfo.name);
+        data.email = validateEmail(personalInfo.email);
+        data.phone = validatePhone(personalInfo.phone);
+        return data;
+      });
     }
   };
 

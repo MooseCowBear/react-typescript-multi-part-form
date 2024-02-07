@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useFormContext } from "../contexts/FormContext";
 import { getValidator } from "../utils/validations";
 
@@ -15,8 +14,7 @@ export function FormInput({
   placeholder,
   type = "text",
 }: FormInputProps) {
-  const { personalInfo, setPersonalInfo } = useFormContext();
-  const [valid, setValid] = useState(true);
+  const { personalInfo, setPersonalInfo, valid, setValid } = useFormContext();
 
   const validator = getValidator(name);
 
@@ -29,7 +27,13 @@ export function FormInput({
   };
 
   const handleBlur = () => {
-    setValid(validator(personalInfo[name as keyof PersonalInfo]));
+    setValid((curr) => {
+      const data = { ...curr };
+      data[name as keyof InputValidity] = validator(
+        personalInfo[name as keyof PersonalInfo]
+      );
+      return data;
+    });
   };
 
   return (
@@ -38,14 +42,22 @@ export function FormInput({
         <label htmlFor={name} className="text-sm">
           {label}
         </label>
-        <span className={`text-red text-xs font-bold ${valid ? "hidden" : "block"}`}>
+        <span
+          className={`text-red text-xs font-bold ${
+            valid[name as keyof InputValidity] ? "hidden" : "block"
+          }`}
+        >
           This field is required
         </span>
       </div>
       <input
         onChange={handleChange}
         onBlur={handleBlur}
-        className={`border font-medium ${valid ? "border-neutral-400" : "border-red"} rounded-md py-2 px-3 focus:outline-none focus:border-blue-400`}
+        className={`border font-medium ${
+          valid[name as keyof InputValidity]
+            ? "border-neutral-400"
+            : "border-red"
+        } rounded-md py-2 px-3 focus:outline-none focus:border-blue-400 hover:border-blue-400 cursor-pointer`}
         type={type}
         id={name}
         placeholder={placeholder}
