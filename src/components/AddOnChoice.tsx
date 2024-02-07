@@ -25,16 +25,16 @@ export function AddOnChoice({ addOn }: AddOnChoiceProps) {
   return (
     <form
       onClick={clickHandler}
-      className={`group border rounded-lg flex items-center justify-between px-4 py-3 md:p-5 lg:gap-16 hover:border-blue-300 hover:cursor-pointer ${
+      className={`group border rounded-lg flex items-center justify-between px-4 py-3 md:p-5 lg:gap-16 hover:border-blue-300 cursor-pointer ${
         isChecked ? "bg-blue-300/5 border-blue-300" : "border-neutral-400"
       }`}
     >
-      <label className="flex items-center gap-2 md:gap-6 group-hover:border-blue-300 group-hover:cursor-pointer">
+      <label className="pointer-events-none flex items-center gap-2 md:gap-6 group-hover:border-blue-300">
         <input
           disabled={true}
           checked={isChecked}
           type="checkbox"
-          className="shrink-0 group-hover:cursor-pointer relative peer appearance-none w-5 h-5 border-2 border-neutral-400 rounded checked:border-blue-300 checked:bg-blue-300"
+          className="pointer-events-none shrink-0 relative peer appearance-none w-5 h-5 border-2 border-neutral-400 rounded checked:border-blue-300 checked:bg-blue-300"
         />
         <span className="flex flex-col items-start">
           <span className="whitespace-nowrap font-bold">{addOn.title}</span>
