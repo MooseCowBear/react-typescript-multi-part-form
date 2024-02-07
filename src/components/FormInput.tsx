@@ -23,13 +23,13 @@ export function FormInput({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPersonalInfo((val) => {
       const data = { ...val };
-      data[name] = e.target.value;
+      data[name as keyof PersonalInfo] = e.target.value;
       return data;
     });
   };
 
   const handleBlur = () => {
-    setValid(validator(personalInfo[name]));
+    setValid(validator(personalInfo[name as keyof PersonalInfo]));
   };
 
   return (
@@ -49,7 +49,7 @@ export function FormInput({
         type={type}
         id={name}
         placeholder={placeholder}
-        value={personalInfo[name]}
+        value={personalInfo[name as keyof PersonalInfo]}
       />
     </div>
   );
